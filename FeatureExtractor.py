@@ -33,7 +33,8 @@ def batch_extractor(images_path, pickled_db_path="picturesKAZE.pck"):
         pickle.dump(result, fp)
 
 def main():
-    images_path='./pictures'
-    batch_extractor(images_path)
+    imagesPath='./Thumbnails/pictures'
+    picklePath = 'picturesKaze.pck'
+    batch_extractor(images_path=imagesPath, pickled_db_path=picklePath)
 
 main()

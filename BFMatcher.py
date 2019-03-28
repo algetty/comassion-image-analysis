@@ -3,8 +3,8 @@ import cv2 as cv
 from matplotlib import pyplot as plt
 
 
-img1 = cv.imread('./pictures/405.jpg',0)          # queryImage
-img2 = cv.imread('./testPictures/405testAskew.JPG',0) # trainImage
+img1 = cv.imread('./TestImages/3044copy.jpg',0)          # queryImage
+img2 = cv.imread('./Thumbnails/pictures/3227-sm.jpg',0) # trainImage
 # Initiate KAZE detector
 kaze = cv.KAZE_create()
 # find the keypoints and descriptors with SIFT
