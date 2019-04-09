@@ -56,7 +56,9 @@ def singleCompare(testImg, pickled_db_path='picturesKAZE.pck'):
     print("Winner: " + bestPicture)
 
 
-def batchCompare(test_pck_path, pictures_pck_path, hamming=False):
+def batchCompare(test_pck_path, pictures_pck_path, file, hamming=False):
+    f = open(file, 'w')
+
     print("unpickling test")
     with open(test_pck_path, 'rb') as fp:
         data = pickle.load(fp)
@@ -121,12 +123,19 @@ def batchCompare(test_pck_path, pictures_pck_path, hamming=False):
 
             i = i + 1
 
-        print("Winner for " + testNames[j] +  ": " + bestPicture)
+
+
+        if testNames[j] == bestPicture:
+            k=1
+        else:
+            k=0
+        f.write(testNames[j] +  "," + bestPicture + ", " + str(k))
 
         j = j+1
+    f.close()
 
 if __name__=='__main__':
-        batchCompare('testKAZE.pck', 'picturesKAZE.pck', hamming=False)
-        batchCompare('testORB.pck', 'picturesORB.pck', hamming=True)
-        batchCompare('testAKAZE.pck', 'picturesAKAZE.pck', hamming=True)
-        batchCompare('testBRISK.pck', 'picturesBRISK.pck', hamming=True)
+        batchCompare('testKAZE.pck', 'picturesKAZE.pck', 'KAZEoutput.csv',hamming=False)
+        batchCompare('testORB.pck', 'picturesORB.pck', 'ORBoutput.csv',hamming=True)
+        batchCompare('testAKAZE.pck', 'picturesAKAZE.pck', 'AKAZEoutput.csv', hamming=True)
+        batchCompare('testBRISK.pck', 'picturesBRISK.pck', 'BRISKoutput.csv', hamming=True)
