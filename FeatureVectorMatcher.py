@@ -129,6 +129,7 @@ def batchCompare(test_pck_path, pictures_pck_path, file, hamming=False):
             k=1
         else:
             k=0
+        print(testNames[j] +  "," + bestPicture + ", " + str(k))
         f.write(testNames[j] +  "," + bestPicture + ", " + str(k))
 
         j = j+1
