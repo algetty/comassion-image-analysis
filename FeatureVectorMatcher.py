@@ -6,7 +6,7 @@ import os
 import pickle
 import scipy.spatial
 import random
-
+from timeit import default_timer as timer
 
 def singleCompare(testImg, pickled_db_path='picturesKAZE.pck'):
     print("unpickling")
@@ -136,7 +136,26 @@ def batchCompare(test_pck_path, pictures_pck_path, file, hamming=False):
     f.close()
 
 if __name__=='__main__':
-        batchCompare('testKAZE.pck', 'picturesKAZE.pck', 'KAZEoutput.csv',hamming=False)
-        batchCompare('testORB.pck', 'picturesORB.pck', 'ORBoutput.csv',hamming=True)
-        batchCompare('testAKAZE.pck', 'picturesAKAZE.pck', 'AKAZEoutput.csv', hamming=True)
-        batchCompare('testBRISK.pck', 'picturesBRISK.pck', 'BRISKoutput.csv', hamming=True)
+    start_time = timer()
+    batchCompare('testKAZE.pck', 'picturesKAZE.pck', 'KAZEoutput.csv',hamming=False)
+    end_time = timer()
+    time = end_time - start_time
+    print("time to run kaze: " + str(time))
+
+    start_time = timer()
+    batchCompare('testORB.pck', 'picturesORB.pck', 'ORBoutput.csv',hamming=True)
+    end_time = timer()
+    time = end_time - start_time
+    print("time to run orb: " + str(time))
+
+    start_time = timer()
+    batchCompare('testAKAZE.pck', 'picturesAKAZE.pck', 'AKAZEoutput.csv', hamming=True)
+    end_time = timer()
+    time = end_time - start_time
+    print("time to run akaze: " + str(time))
+
+    start_time = timer()
+    batchCompare('testBRISK.pck', 'picturesBRISK.pck', 'BRISKoutput.csv', hamming=True)
+    end_time = timer()
+    time = end_time - start_time
+    print("time to run brisk: " + str(time))
