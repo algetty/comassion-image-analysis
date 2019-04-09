@@ -32,7 +32,7 @@ def batch_extractor(images_path, alg, pickled_db_path ):
 
 def main():
     # paths to the thumbnails and the test images
-    thumbnailPath='.Pictures'
+    thumbnailPath='./Pictures'
     testPath = './TestImages'
 
     # path to write pickled feature vectors. naming convention: {pictures, test}FV.pck
