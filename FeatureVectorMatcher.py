@@ -103,18 +103,18 @@ def batchCompare(test_pck_path, pictures_pck_path, file, hamming=False):
         mostKPsInCommon = -1
         bestPicture = None
 
-
         i = 0
         for thumbDes in thumbMatrix:
-            matches = flann.knnMatch(testDes,thumbDes,k=2)
-
             good = []
+            if not thumbDes is None and not testDes is None:
 
-            for match in matches:
-                if len(match) > 1:
-                    m = match[0] ; n = match[1]
-                    if m.distance < 0.75*n.distance:
-                        good.append([m])
+                matches = flann.knnMatch(testDes,thumbDes,k=2)
+
+                for match in matches:
+                    if len(match) > 1:
+                        m = match[0] ; n = match[1]
+                        if m.distance < 0.75*n.distance:
+                            good.append([m])
 
 
             if len(good) > mostKPsInCommon:
@@ -129,7 +129,7 @@ def batchCompare(test_pck_path, pictures_pck_path, file, hamming=False):
             k=1
         else:
             k=0
-        print(testNames[j] +  "," + bestPicture + ", " + str(k))
+        # print(testNames[j] +  "," + bestPicture + ", " + str(k))
         f.write(testNames[j] +  "," + bestPicture + ", " + str(k))
 
         j = j+1

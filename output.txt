@@ -1,0 +1,22 @@
+kyle@kyle-linux ~/development/comassion-image-analysis $ python3 FeatureVectorMatcher.py
+unpickling test
+donepickling test
+unpickling thumbnails
+donepickling thumbnails
+time to run kaze: 1862.0839254180028
+unpickling test
+donepickling test
+unpickling thumbnails
+donepickling thumbnails
+time to run orb: 64.48153361099685
+unpickling test
+donepickling test
+unpickling thumbnails
+donepickling thumbnails
+time to run akaze: 716.195910774004
+unpickling test
+donepickling test
+unpickling thumbnails
+donepickling thumbnails
+time to run brisk: 1184.975801351
+
