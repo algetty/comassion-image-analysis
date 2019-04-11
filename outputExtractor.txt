@@ -1,0 +1,4 @@
+time to extract KAZE: 246.33988932700004
+time to extract AKAZE: 44.92280005900011
+time to extract ORB: 8.417388483000195
+time to extract BRISK: 9.275294391999978
